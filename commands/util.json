@@ -1,0 +1,27 @@
+const Discord = require("discord.js");
+const db = require('quick.db'),
+      ms = require('parse-ms');
+
+module.exports.run = async (bot, message, args) => {
+
+    let cooldown = 8.64e+7; // Cooldown
+    let amount = 250; 
+
+    let lastDaily = await db.fetch(`lastDaily_${message.author.id}`);
+
+    if (lastDaily !== null && cooldown - (Date.now() - lastDaily) > 0) {
+        let timeObj = ms(cooldown - (Date.now() - lastDaily));
+
+        message.channel.send(`Você ja coletou suas moedas diarias, volte novamente daqui há **${timeObj.hours}horas ${timeObj.minutes}minutos**!`)
+
+    } else {
+        message.channel.send(`Você coletou $${amount} diarios`);
+
+        db.set(`lastDaily_${message.author.id}`, Date.now()); 
+        db.add(`userBalance_${message.author.id}`, 250);
+    } 
+}
+
+module.exports.help = {
+  name: "daily"
+}
