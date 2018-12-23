@@ -47,14 +47,6 @@ client.on("ready", async () => {
             message.delete();
             message.reply("❌ **Você não pode divulgar aqui!**");}}
 });
-  setInterval(() => {
-      
-
-      let agora = moment(Date.now()).format("LTS");
-      
-      if(agora === "10:07:50 AM") return client.users.get("460561427971702787").send("Mandou meia noite no horário de brasilia significa que funcionou se funcionou diga pro whoami falando que ele e foda '-'");
-  
-  }, 1);
   
 
 });
@@ -89,9 +81,23 @@ client.on("guildMemberAdd", async member => {
            await msg.delete();
        }  
       });
-     
-     
-   });
+     });
+    let moment = require("moment");	
+    let criou = member.user.createdAt;
+    let criou_em = moment().diff(criou, 'days')
+    if(!criou_em > 10) return;
+    member.guild.member.forEach(staff => {
+      if(!staff.roles.some(r=>["512646694022807576"].includes(r.id))) return;	    
+      var mensagem = new Discord.RichEmbed()
+     .setAuthor(member.user.tag+", suspeito!", member.user.avatarURL)
+     .setColor("RANDOM")
+     .setDescription("O usuário `"+member.user.tag+"`, que acabou de entrar no servidor, criou sua conta há menos de 10 (dez) dias!\nÉ `recomendável` checkar se realmente é um humano!\nEle foi nosso membro `"+member.guild.memberCount+"`!")
+     .setFooter(member.user.tag+", recomendado checkar se o membro é um humano!", member.user.avatarURL)
+     .setTimestamp(Date.now());
+      staff.user.send(mensagem);
+	return;     
+	    
+    });
 });
 
 client.on("message", async message => {
