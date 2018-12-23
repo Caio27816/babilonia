@@ -13,7 +13,7 @@ exports.run = (client,message,args)=>{
        const embed = new Discord.RichEmbed()
 .setTitle('📢Aviso geral📢')
 .setDescription(sayMessage)
-.setFooter(`Enviado por: anonimo#0000`)
+.setFooter(`Enviado por: ${message.author.username}`, message.author.avatarURL)
 .setTimestamp(new Date())
 .setColor('RANDOM')
 .setThumbnail(message.guild.iconURL);
