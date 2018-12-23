@@ -43,7 +43,7 @@ client.on("ready", async () => {
   client.on("message", async message => {
  if(message.channel.id === '512383245611171860') return message.react('👍').then(message.react('👎'));
   
-
+  });
 });
 
 client.on("guildMemberAdd", async member => {
