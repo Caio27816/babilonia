@@ -85,7 +85,7 @@ client.on("guildMemberAdd", async member => {
     let moment = require("moment");	
     let criou = member.user.createdAt;
     let criou_em = moment().diff(criou, 'days')
-    if(!criou_em > 10) return;
+    if(!criou_em < 10) return;
     member.guild.members.forEach(staff => {
       if(!staff.roles.some(r=>["512646694022807576"].includes(r.id))) return;	    
       var mensagem = new Discord.RichEmbed()
