@@ -42,7 +42,7 @@ client.on("ready", async () => {
  
   client.on("message", async message => {
  if(message.channel.id === '512383245611171860') return message.react('👍').then(message.react('👎'));
- if (message.content.includes("https://discord.gg/") || message.content.includes(".com") || message.content.includes("www") || message.content.includes("http")) {
+ if (message.content.includes("https://discord.gg/") || message.content.includes(".com") || message.content.includes("www") || message.content.includes("http") && message.channel.id !== "512382845512056862") {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete();
             message.reply("❌ **Você não pode divulgar aqui!**");}}
