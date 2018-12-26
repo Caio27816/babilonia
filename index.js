@@ -3,16 +3,6 @@ const http = require('http');
 const express = require('express');
 const moment = require("moment");
 moment.locale("pt-br");
-const app = express();
-var string = moment(Date.now()).format("LTS");
-app.get("/", (request, response) => {
-  console.log(`${string} pinged!`);
-  response.sendStatus(200);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://babilonia-bot.glitch.me/`);
-}, 110000);
 const client = new Discord.Client();
 client.prefix = "b!";
 client.on("ready", async () => {
@@ -49,9 +39,9 @@ client.on("ready", async () => {
 client.on("guildMemberAdd", async member => {
    let avatar = member.user.avatarURL;
    if (!avatar) avatar = member.guild.iconURL;
-   var novato = member.guild.roles.find("id", "514943239841906696");
+   var novato = "514943239841906696";
    member.addRole(novato);
-   var membro = member.guild.roles.find("id", "512401509112086528");
+   var membro = "512401509112086528"
    var entrada = new Discord.RichEmbed()
    .setColor("RANDOM")
    .setFooter(member.user.username, client.user.avatarURL)
