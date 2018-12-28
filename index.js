@@ -72,6 +72,7 @@ client.on("guildMemberAdd", async member => {
 	    msg2.react(samp);
 	    client.on("messageReactionAdd", (user, reaction) => {
 	      if(user.id !== member.user.id) return;
+	      if(reaction.message.id !== msg2.id) return;   	     
 	      if(reaction.emoji.name === "minecraft") {
 		     member.addRole("519007073028145152");
 		     member.user.send("Confirmado!");
