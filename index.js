@@ -97,6 +97,9 @@ client.on("message", async message => {
     await commands.run(client, message, args);
   } catch (e) {
     console.log(e);
+    if(e.toString().includes("MODULE_NOT_FOUND") {
+       return message.reply("Comando não encontrado: ```"+command+"```.\nUse __b!comandos__ para ver a lista de comandos!");
+       }
   }
 
 
