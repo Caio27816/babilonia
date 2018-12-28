@@ -74,10 +74,11 @@ client.on("guildMemberAdd", async member => {
 	      if(user.id !== member.user.id) return;
 	      if(reaction.emoji.name === "minecraft") {
 		     member.addRole("519007073028145152");
-		      member.user.send("Confirmado!");
-	      } else if(reaction.emoji.name === "samp") {
+		     member.user.send("Confirmado!");
+	      } 
+		if(reaction.emoji.name === "samp") {
 		 member.addRole("527607883802607646");
-		   return member.user.send("Confirmado!");   
+		  member.user.send("Confirmado!");   
 	      }
 	    });
 	 });    
