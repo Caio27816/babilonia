@@ -64,7 +64,7 @@ client.on("guildMemberAdd", async member => {
            .setDescription("Seja oficialmente bem-vindo ao Babilônia. Validação do registro confirmada!");
            member.user.send(validado);
            await msg.delete();
-       }  
+	    
 	 member.user.send("Agora, selecione seu estilo de jogos!").then(msg2 => {
 	    let mine = ":minecraft:528222870472622081";
 	     let samp = ":samp:528222974470258698";	 
@@ -82,7 +82,8 @@ client.on("guildMemberAdd", async member => {
 		  member.user.send("Confirmado!");   
 	      }
 	    });
-	 });    
+	 });     
+       }    
       });   
      });
     let moment = require("moment");	
