@@ -65,7 +65,23 @@ client.on("guildMemberAdd", async member => {
            member.user.send(validado);
            await msg.delete();
        }  
-      });
+	 member.user.send("Agora, selecione seu estilo de jogos!").then(msg2 => {
+	    let mine = ":minecraft:528222870472622081";
+	     let samp = ":samp:528222974470258698";	 
+	    msg2.react(mine);
+	    msg2.react(samp);
+	    client.on("messageReactionAdd", (user, reaction) => {
+	      if(user.id !== member.user.id) return;
+	      if(reaction.emoji.name === "minecraft") {
+		     member.addRole("519007073028145152");
+		      member.user.send("Confirmado!");
+	      } else if(reaction.emoji.name === "samp") {
+		 member.addRole("527607883802607646");
+		   return member.user.send("Confirmado!");   
+	      }
+	    });
+	 });    
+      });   
      });
     let moment = require("moment");	
     let criou = member.user.createdAt;
