@@ -39,8 +39,8 @@ client.on("ready", async () => {
 });
 
 client.on("guildMemberAdd", async member => {
-   let avatar = member.user.avatarURL;
-   if (!avatar) avatar = member.guild.iconURL;
+   let avatar1 = member.user.avatarURL;
+   if (!avatar1) avatar = member.guild.iconURL;
    var novato = "514943239841906696";
    member.addRole(novato);
    var membro = "512401509112086528"
@@ -60,9 +60,9 @@ client.on("guildMemberAdd", async member => {
            await member.removeRole(novato);
            var validado = new Discord.RichEmbed()
            .setColor([139, 0, 0])
-           .setFooter(member.user.username, avatar)
+           .setFooter(member.user.username, avatar1)
            .setTimestamp(Date.now())
-           .setAuthor(member.user.username, avatar)
+           .setAuthor(member.user.username, avatar1)
            .setDescription("Seja oficialmente bem-vindo ao Babilônia. Validação do registro confirmada!");
            member.user.send(validado);
            await msg.delete();
