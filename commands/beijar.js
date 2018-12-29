@@ -7,10 +7,10 @@ module.exports.run = async (bot, message, args) => {
     let user = message.mentions.users.first()
  if(user.id == message.author.id) return message.channel.send("`Você não pode beijar a si mesmo.`")
     let botembed = new Discord.RichEmbed()
-    .setDescription(`| ${message.author} deu um beijo no(a) ${user}`)
+    .setDescription(``)
     .setColor('RANDOM')
     .setImage(`${random}`)
-message.channel.send(botembed);
+message.channel.send(`| ${message.author} deu um beijo no(a) ${user}`, botembed);
   }
 module.exports.help = {
     name: "beijar"
