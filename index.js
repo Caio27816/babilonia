@@ -66,6 +66,26 @@ client.on("guildMemberAdd", async member => {
            .setDescription("Seja oficialmente bem-vindo ao Babilônia. Validação do registro confirmada!");
            member.user.send(validado);
            await msg.delete();
+	       
+	     const canvas = Canvas.createCanvas(250, 250);
+            const ctx = canvas.getContext('2d');
+  
+               ctx.fillStyle = "rgb(51, 51, 51)";
+          ctx.fillRect(0, 0, 250, 250);
+  
+           const { body: a } = await snekfetch.get(user.avatarURL);
+              const avatar = await Canvas.loadImage(a);
+                ctx.drawImage(avatar, 10, 10, 230, 230);
+  
+  ctx.fillStyle = "rgb(0, 96, 128)";
+  ctx.fillRect(205, 205, 40, 40);
+  
+  ctx.font = "3px Arial";
+  ctx.fillStyle = "rgb(255, 255, 255)";
+  ctx.fillText(`Seja bem vindo ao Babilônia!`, 210, 240)
+  
+  const attach = new Discord.Attachment(canvas.toBuffer(), 'avatar.png');    
+	       member.user.send(attach);
        }
       });
     });
