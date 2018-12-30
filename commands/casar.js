@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const db = require("quick.db");
 exports.run = async (client, message, args) => {
    
-    let pessoacasar = message.mentios.users.first();
+    let pessoacasar = message.mentions.users.first();
     let jcasado = await db.fetch(`casado_${pessoacasar.id}`);
     let casado = await db.fetch(`casado_${message.author.id}`);
     if(jcasado === null) jcasado = false;
