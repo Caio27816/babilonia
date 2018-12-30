@@ -69,6 +69,8 @@ client.on("guildMemberAdd", async member => {
        }
       });
     });
+  });
+   client.on("guildMemberAdd", member => {
 	 member.user.send("Agora, selecione seu estilo de jogos!").then(msg2 => {
 	    let mine = ":minecraft:528222870472622081";
 	     let samp = ":samp:528222974470258698";	 
@@ -87,6 +89,9 @@ client.on("guildMemberAdd", async member => {
 	      }
 	    });   
        });     
+      });
+
+      client.on("guildMemberAdd", member => {
     let moment = require("moment");	
     let criou = member.user.createdAt;
     let criou_em = moment().diff(criou, 'days')
@@ -102,7 +107,7 @@ client.on("guildMemberAdd", async member => {
       staff.user.send(mensagem);
 	return;     
     });
-    });
+  });
   
 
 client.on("message", async message => {
