@@ -47,7 +47,7 @@ client.on("guildMemberAdd", async member => {
    var entrada = new Discord.RichEmbed()
    .setColor("RANDOM")
    .setFooter(member.user.username, client.user.avatarURL)
-   .setAuthor(member.user.username, avatar)
+   .setAuthor(member.user.username, avatar1)
    .setTimestamp(Date.now())
    .setDescription("Validação do registro requerida! Aperte na reação e tenha acesso total ao Babilônia!");
    member.user.send(entrada).then(async msg => {
