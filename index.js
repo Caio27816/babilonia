@@ -87,7 +87,6 @@ client.on("guildMemberAdd", async member => {
 	      }
 	    });   
        });     
-    });
     let moment = require("moment");	
     let criou = member.user.createdAt;
     let criou_em = moment().diff(criou, 'days')
@@ -102,7 +101,7 @@ client.on("guildMemberAdd", async member => {
      .setTimestamp(Date.now());
       staff.user.send(mensagem);
 	return;     
-	    
+    });
     });
   
 
