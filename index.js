@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const http = require('http');
 const express = require('express');
 const moment = require("moment");
-const superfetch = require("node-superfetch");
+const snekfetch = require("node-superfetch");
 const Canvas = require("canvas");
 moment.locale("pt-br");
 const client = new Discord.Client();
