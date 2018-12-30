@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
            if(user.id !== pessoacasar.id) return;
            if(reaction.message.id !== msg.id) return;
            if(reaction.emoji.name === "✅") {
-             db.set(`casadoquem_${pessoacasar.id}|${message.author.id}`);
+             db.set(`casadoquem_${pessoacasar.id}|${message.author.id}`, true);
              let casado = new discord.RichEmbed().setColor("RED").setDescription(`<@${message.author.id}> está casado com <@${pessoacasar.id}>!`).setImage(pessoacasar.avatarURL || message.author.avatarURL).setTimestamp(Date.now()).setFooter(pessoacasar.username || message.author.username, pessoacasar.avatarURL || message.author.avatarURL);
              db.set(`casado_${message.author.id}`, true); db.set(`jcasado_${message.author.id}`, true);
              return message.reply("Casados com sucesso! Papelada assinada", casado);
