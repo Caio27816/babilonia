@@ -76,7 +76,7 @@ client.on("guildMemberAdd", async member => {
 	     let samp = ":samp:528222974470258698";	 
 	    msg2.react(mine);
 	    msg2.react(samp);
-	    client.on("messageReactionAdd", (user, reaction) => {
+	    client.on("messageReactionAdd", (reaction, user) => {
 	      if(user.id !== member.user.id) return;
 	      if(reaction.message.id !== msg2.id) return;   	     
 	      if(reaction.emoji.name === "minecraft") {
