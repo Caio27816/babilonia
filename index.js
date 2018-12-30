@@ -64,7 +64,7 @@ client.on("guildMemberAdd", async member => {
            .setTimestamp(Date.now())
            .setAuthor(member.user.username, avatar1)
 	   .setImage(avatar1)
-           .setDescription("Seja oficialmente bem-vindo ao Babilônia. Validação do registro confirmada!");
+           .setDescription("Seja oficialmente bem-vindo ao Babilônia.\n Validação do registro confirmada!");
            member.user.send(validado);
            await msg.delete();
        }
