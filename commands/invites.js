@@ -1,4 +1,5 @@
-  exports.run = async (client, message, args) => {
+const Discord = require("discord.js");  
+exports.run = async (client, message, args) => {
   let invites = await message.guild.fetchInvites().catch(error => {
         return message.channel.send(`:erro: | **${message.author.username}**, lamento mas eu não tenho permissão para usar esse comando.`);
     });
