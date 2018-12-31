@@ -15,4 +15,4 @@
         .setFooter(message.author.username, message.author.avatarURL)
     message.channel.send({embed: LeaderBoard});
 }
-}
+
