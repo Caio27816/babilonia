@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {      
-let messagecount = parseInt(args[0]);
+let messagecount = parseInt(args[1]);
 
         var deletedMessages = -1;
 
