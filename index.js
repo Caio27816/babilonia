@@ -137,7 +137,7 @@ client.on("message", async message => {
 });*/
 
 client.on("messageDelete", (messageDelete) => {
-	let logs = await msg.guild.fetchAuditLogs({type: 72});
+	let logs = msg.guild.fetchAuditLogs({type: 72});
   let entry = logs.entries.first();
       var mensagem = new Discord.RichEmbed()
      .setColor("RANDOM")
@@ -145,7 +145,7 @@ client.on("messageDelete", (messageDelete) => {
      .setDescription(`O membro ${entry.executor} deletou uma mensagem no canal <#${messageDelete.channel.id}>, mensagem de messageDelete.tag.`)
      .addField("Mensagem", "```"+messageDelete.content+"```", true)
      .setTimestamp(Date.now());	
- client.channels.get("512839361721794570").send(mensagem);
+ return client.channels.get("512839361721794570").send(mensagem);
 });
 
 /*client.on("messageUpdate", (oldMessage, newMessage) => {
