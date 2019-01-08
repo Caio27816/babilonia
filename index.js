@@ -137,8 +137,7 @@ client.on("message", async message => {
 });*/
 
 client.on("messageDelete", (messageDelete) => {
-	let logs = messageDelete.guild.fetchAuditLogs({type: 72});
-  let entry = logs.entries.first();
+	const entry = await messageDelete.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'}).then(audit => audit.entries.first())
       var mensagem = new Discord.RichEmbed()
      .setColor("RANDOM")
       .setThumbnail(messageDelete.guild.iconURL)
