@@ -136,4 +136,27 @@ client.on("message", async message => {
 
 });*/
 
+client.on("messageDelete", (messageDelete) => {
+	let logs = await msg.guild.fetchAuditLogs({type: 72});
+  let entry = logs.entries.first();
+      var mensagem = new Discord.RichEmbed()
+     .setColor("RANDOM")
+      .setThumbnail(messageDelete.guild.iconURL)
+     .setDescription(`O membro ${entry.executor} deletou uma mensagem no canal <#${messageDelete.channel.id}>, mensagem de messageDelete.tag.`)
+     .addField("Mensagem", "```"+messageDelete.content+"```", true)
+     .setTimestamp(Date.now());	
+ client.channels.get("512839361721794570").send(mensagem);
+});
+
+/*client.on("messageUpdate", (oldMessage, newMessage) => {
+      var mensagem = new Discord.RichEmbed()
+     .setColor("RANDOM")
+      .setThumbnail(messageDelete.guild.iconURL)
+     .setDescription(`O membro ${messageDelete.tag} editou uma mensagem no canal <#${messageDelete.channel.id}>.`)
+     .addField("Mensagem velha", "```"+oldMessage.content+"```", true)
+      .addField("Mensagem nova", "```"+newMessage.content+"```", true)
+     .setTimestamp(Date.now());	
+ client.channels.get("512839361721794570").send(mensagem);
+});*/
+
 client.login(process.env.TOKEN);
