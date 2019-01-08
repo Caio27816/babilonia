@@ -141,7 +141,7 @@ client.on("messageDelete", async (messageDelete) => {
       var mensagem = new Discord.RichEmbed()
      .setColor("RANDOM")
       .setThumbnail(messageDelete.guild.iconURL)
-     .setDescription(`O membro ${entry.executor} deletou uma mensagem no canal <#${messageDelete.channel.id}>, mensagem de ${messageDelete.tag}.`)
+     .setDescription(`O membro ${entry.executor} deletou uma mensagem no canal <#${messageDelete.channel.id}>, mensagem de ${messageDelete.author.tag}.`)
      .addField("Mensagem", "```"+messageDelete.content+"```", true)
      .setTimestamp(Date.now());	
  return client.channels.get("512839361721794570").send(mensagem);
